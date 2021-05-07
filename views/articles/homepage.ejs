@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+  
+    
+    <title>I&N-Blog</title>
+    <link rel="icon" href="img/logo2.png" type="image/gif">
+
+</head>
+<!--
+<body style="background-color: rgb(241, 241, 241);">
+</header>
+</body>-->
+
+<body>
+
+
+<!------>
+<nav class="navBar">
+    <div class="mainMenu">
+
+        <div class="logo">
+            <a href="#"><img src="img/logo.png"></a>
+        </div>
+
+
+           
+            <div class="menu_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+    </div>
+    
+    <div class="parent">
+        <div class="col-md-12">
+            <%- include('_maincss.ejs') %>
+
+            <blockquote>
+                Lorem ipsum dolor sit amet cons ectetur adipi sicing elit sed do<br> eiusmod tempor incididunt ut labore et dolore <br>magna aliqua ut enim ad cons ectetur adipi.
+                <cite>
+                  John Doe<br>
+                  <em>Designer &amp; Developer</em><br>
+                  <a href="#">Freelancer</a>
+                </cite>
+            </blockquote>
+    
+    </div>
+
+      <!--
+              <div id="banner">
+        <h1>&lt;I&NDE & Son's Softwares inc/&gt;</h1>
+        <h3>A software company to rule them all,one to find them,one to call them all, and in salvation  bind them</h3>
+         <h3>In the bright world of Python, the state of Java,and the fields of Linux where Hackers play</h3>
+        <h4>Software Development & Mechatronics Engineering  Student.Futuristic Enthuasts,Data science</h4>
+        <ul>
+
+    </div>
+    -->
+
+<!----->
+
+    
+       
+</div>
+
+
+
+</nav>
+
+    <!-- header and social media links -->
+    
+
+  
+
+    </div>
+
+    <%- include('_header_file.ejs') %>
+
+
+    <div class="container" style="margin-top: 40px;">
+        <div class="row">
+
+            <div class="col-md-8"><!--
+                <div class="article">
+                        <h1 class="mb-4" style="text-align: center;">ARTICLES</h1>
+                        
+                        
+                            <p>Hello...<br>welcome to Iande portifolio </p>
+                            
+                            <h6> Find them, call them all, and in salvation  bind them</h6>
+                            <h6>World of Python, the state of Java,and the fields of Linux where Hackers play</h6>
+                           <h6>Software Development & Mechatronics Engineering  Student.Futuristic Enthuasts,Data science</h6>
+                        
+                        </div>-->
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="/articles/new" class="btn btn-success">Add Article</a>
+                    </div>
+
+                    <div class="col-md-9" style="margin-right: 0;">
+                            <button class="btn btn-outline-dark btn-sm">#tech</button>
+                            <button class="btn btn-outline-dark btn-sm">#AI</button>
+                            <button class="btn btn-outline-dark btn-sm">#IoT</button>
+                            <button class="btn btn-outline-dark btn-sm">#online</button>
+                            <button class="btn btn-outline-dark btn-sm">#trending</button>
+                            
+                            <button class="btn btn-outline-dark btn-sm">#future</button>
+                           
+                    </div>
+                </div>
+
+                        <% articles.forEach(article => { %>
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="border-bottom: 1px solid #000;"><%= article.title %></h4>
+                                    <div class="card-subtitle text-muted mb-2">
+                                        Date Posted: <%= article.createdDate.toLocaleDateString() %>
+                                    </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <div class="text-card mb-2"><%= article.description %></div>
+                                            </div>
+                                            <div class="col-md-6 mb-2" style="overflow: hidden;">                                               
+                                                <img src="/img/uploads/<%= article.img %> " class="img-fluid" alt="Responsive image">
+                                                
+                                                
+                                            </div>
+                                        </div>
+
+
+                                    <a href="articles/<%= article.slug %> " class="btn btn-primary">Read more</a>
+                                    <a href="articles/edit/<%= article.id %> " class="btn btn-info">Edit</a>
+                                    <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        <% }) %>
+            </div>
+
+
+            
+
+        <div class="col-md-4" style="border: 1px solid #000; border-radius: 10px; background: rgba(97, 93, 145, 0.753); margin-top: 135px; height: fit-content;">
+            <h2 class="mt-4" style="text-decoration: underline;color: rgb(255, 255, 255);">Recent</h2>
+                <!-- <a href="/articles/new" class="btn btn-success">Add Article</a> -->
+            <h5 style="color:rgb(8, 8, 10);" class="mb-3">Get to know what is happening in the world of tech.</h5>
+                <% articles.forEach(article => { %>
+                    <div class="card mt-1" style="border-top: 2px solid #000; border-bottom: none; border-right: none; border-left: none; border-radius: 0;">
+                        <div class="card-body">
+                            <h6 class="card-title"><%= article.title %></h6>
+                            <div class="card-subtitle text-muted mb-2">
+                                posted: <%= article.createdDate.toLocaleDateString() %>
+                            </div>
+                            <!-- <div class="text-card mb-2"><%= article.description %></div> -->
+                            <a href="articles/<%= article.slug %>" class="btn btn-sm btn-primary" style="background: rgb(74, 231, 0); border: none;">Read more</a>
+                            <!-- <a href="articles/edit/<%= article.id %> " class="btn btn-info">edit</a> -->
+                            <!-- <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger">delete</button>
+                            </form> -->
+                        </div>
+                    </div>
+                <% }) %>
+        </div>
+    </div> 
+       
+</div>
+
+</section>
+
+<!--PRODUCTS-->
+<%- include('_maincss.ejs') %>
+<div class="col-md-11">
+<div class="wrap-related-product">
+    <h6 class="medium-text">Discover Our</h6>
+    <h3 class="larg-text">Related Products</h3>
+</div>
+
+<div class="middle-shop-list row">
+    <div class="col-item col-sm-8 col-md-6 col-lg-3">
+        <div class="item-shop-page">
+            <div class="img-item">
+                <a href="product-detail.html"><img src="/img/background2.jpg" alt="img-food"></a>
+            </div>
+            <a href="product-detail.html"><h4 class="name-item">Charred octopus</h4></a>
+            <p class="price-item">$ 20.00</p>
+            <button class="btn-with-bg add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+    <div class="col-item col-sm-8 col-md-6 col-lg-3">
+        <div class="item-shop-page">
+            <div class="img-item">
+                <a href="product-detail.html"><img src="/img/background3.jpg" alt="img-food"></a>
+            </div>
+            <a href="product-detail.html"><h4 class="name-item">Potato gnocchi</h4></a>
+            <p class="price-item">$ 10.00</p>
+            <button class="btn-with-bg add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+    <div class="col-item col-sm-8 col-md-6 col-lg-3">
+        <div class="item-shop-page">
+            <div class="img-item">
+                <a href="product-detail.html"><img src="/img/background4.jpg" alt="img-food"></a>
+            </div>
+            <a href="product-detail.html"><h4 class="name-item">Pork ribollita</h4></a>
+            <p class="price-item">$ 15.00</p>
+            <button class="btn-with-bg add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+    <div class="col-item col-sm-8 col-md-6 col-lg-3">
+        <div class="item-shop-page">
+            <div class="img-item">
+                <a href="product-detail.html"><img src="/img/background5.jpg" alt="img-food"></a>
+            </div>
+            <a href="product-detail.html"><h4 class="name-item">Pine nut sbrisalona</h4></a>
+            <p class="price-item">$ 20.00</p>
+            <button class="btn-with-bg add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!---->
+
+	<%- include('_maincss.ejs') %>
+    <div class="col-md-11">
+			<div class="wrap-related-product">
+				<h6 class="medium-text">Discover Our</h6>
+				<h3 class="larg-text">Related Products</h3>
+			</div>
+
+			<div class="middle-shop-list row">
+				<div class="col-item col-sm-8 col-md-6 col-lg-3">
+					<div class="item-shop-page">
+						<div class="img-item">
+							<a href="product-detail.html"><img src="/img/background5.jpg" alt="img-food"></a>
+						</div>
+						<a href="product-detail.html"><h4 class="name-item">Charred octopus</h4></a>
+						<p class="price-item">$ 20.00</p>
+						<button class="btn-with-bg add-to-cart">ADD TO CART</button>
+					</div>
+				</div>
+				<div class="col-item col-sm-8 col-md-6 col-lg-3">
+					<div class="item-shop-page">
+						<div class="img-item">
+							<a href="product-detail.html"><img src="/img/background5.jpg" alt="img-food"></a>
+						</div>
+						<a href="product-detail.html"><h4 class="name-item">Potato gnocchi</h4></a>
+						<p class="price-item">$ 10.00</p>
+						<button class="btn-with-bg add-to-cart">ADD TO CART</button>
+					</div>
+				</div>
+				<div class="col-item col-sm-8 col-md-6 col-lg-3">
+					<div class="item-shop-page">
+						<div class="img-item">
+							<a href="product-detail.html"><img src="/img/background5.jpg" alt="img-food"></a>
+						</div>
+						<a href="product-detail.html"><h4 class="name-item">Pork ribollita</h4></a>
+						<p class="price-item">$ 15.00</p>
+						<button class="btn-with-bg add-to-cart">ADD TO CART</button>
+					</div>
+				</div>
+				<div class="col-item col-sm-8 col-md-6 col-lg-3">
+					<div class="item-shop-page">
+						<div class="img-item">
+							<a href="product-detail.html"><img src="/img/background5.jpg" alt="img-food"></a>
+						</div>
+						<a href="product-detail.html"><h4 class="name-item">Pine nut sbrisalona</h4></a>
+						<p class="price-item">$ 20.00</p>
+						<button class="btn-with-bg add-to-cart">ADD TO CART</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<section id="service" class="section-padding">
+ <div class="container">
+   <div class="row">
+     <div class="col-md-4 col-sm-4"><br>
+       <h2 class="ser-title">Our Service</h2>
+       <hr class="botm-line">
+       <p>Our service is completely free of cost.<br>We work for humanity. We ensure to respond to your call
+         always.
+       </p>
+     </div>
+     <div class="col-md-4 col-sm-4">
+       <div class="service-info">
+         <div class="icon">
+           <i class="fa fa-calendar-check-o"></i>
+         </div>
+         <div class="icon-info">
+           <h4>24/7 Support</h4>
+           <p>Open for you, always. Our doors are never closed.</p>
+         </div>
+       </div>
+       <div class="service-info">
+         <div class="icon">
+           <i class="fa fa-user-md"></i>
+         </div>
+         <div class="icon-info">
+           <h4>Emergency Services</h4>
+           <p>We tie up with Hospitals, Rehab centres and Safe-Shelter camps. At rehab centres, we try to ensure the
+             availability (on demand) of medical counsellors to attend to you.</p>
+         </div>
+       </div>
+     </div>
+     <div class="col-md-4 col-sm-4">
+       <div class="service-info">
+         <div class="icon">
+           <i class="fa fa-shield"></i>
+         </div>
+         <div class="icon-info">
+           <h4>Security</h4>
+           <p>Your data is safe with us. You chose what to provide us with.</p>
+         </div>
+       </div>
+       <div class="service-info">
+         <div class="icon">
+           <i class="fa fa-connectdevelop"></i>
+         </div>
+         <div class="icon-info">
+           <h4>Advanced Technology</h4>
+           <p>We use a Graph Database at the backend to create a scalable yet concise social graph.
+             This ensures that we are able to provide the necessary assistance in the speediest way possible.</p>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</section>
+
+
+
+        
+<footer >
+    <%- include('_maincss.ejs') %>
+    
+    <div class="container">
+        <div class="content-footer row">
+            <div class="column-footer col-lg-5 col-md-8 col-sm-7">
+                <h3>Contact information</h3>
+                <ul>
+                    <li>ADDRESS: 4024 First Avenue, Debrecen, NY 1001</li>
+                    <li>FOR BOOKING: (+36) 309254032</li>
+                    <li id="follow-us">FOLLOW US ON: 
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+                <p>Wow! This must be : &#8594;<span><a href="whatsapp://send?phone=+254717426922&text=Contacting from 'Iande & sons software  inc" style="color: #ce0404;">IAИD£</a></span>and <a href="whatsapp://send?phone=+254741921853&text=Contacting from 'Iande & sons software  inc" style="color: #ce0404;">C-N-N</a></span></p>
+                <br><br><br>
+                <div class="mb-4">
+                    <a href="/articles/homepage" class="btn btn-danger">BACK TO HOME</a></div>
+            </div>
+
+            <div class="column-footer col-lg-4 col-md-5 col-sm-7">
+                <h3>Working  Hours</h3>
+                <ul id="restaurant-hours">
+                    <li>
+                        <span class="span-left">WEB & DESIGN:</span>
+                    </li>
+                    <li>
+                        <span class="span-left">Monday - Friday</span>
+                        <span class="span-right">11:30AM - 2:00PM</span>
+                    </li>
+                    <li>
+                        <span class="span-left">SOFTWARE & APP:</span>
+                    </li>
+                    <li>
+                        <span class="span-left">Monday - Friday</span>
+                        <span class="span-right">5:30PM - 11:00PM</span>
+                    </li>
+                    <li>
+                        <span class="span-left">Saturday - Sunday</span>
+                        <span class="span-right">4:30PM - 10:00PM</span>
+                    </li>
+                </ul>
+                <br>
+                <div class="mb-4">
+                    <a href="/articles/product" class="btn btn-success">BACK TO PRODUCT</a></div>
+
+                   
+                      <div class="citation">
+                        <cite>
+                          Pandersoft solutions<br>
+                          <em>Designer &amp; Developer</em><br>
+                          <a href="#">Freelancer</a>
+                        </cite>
+                </div>
+                <div class="line-divide first-line"></div>
+            </div>
+
+            <div class="column-footer col-lg-3 col-md-3 col-sm-7">
+                <h3>Useful links</h3>
+                <ul id="useful-links">
+                    <li>
+                        <span class="span-left">
+                            <a href="/">Home</a>
+                        </span> 
+                        <span class="span-right">
+                            <a href="/">Features</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="span-left">
+                            <a href="/">Menus</a>
+                        </span> 
+                        <span class="span-right">
+                            <a href="/">Blog</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="span-left">
+                            <a href="/">Reservation</a>
+                        </span> 
+                        <span class="span-right">
+                            <a href="/">Contact us</a>
+                        </span>
+                    </li>
+                    <li><a href="/">About us</a></li>
+                </ul>
+                <br><br><br>
+                <div class="mb-4">
+                <a href="/articles/about" class="btn btn-primary">BACK TO ABOUT</a></div>
+
+                <button class="btn btn-danger" onclick="downloadInvoice()">DOWNLOAD INVOICE</button>
+           
+            
+                <script>
+                    function downloadInvoice(){
+                
+                        var data = {
+                    //"documentTitle": "RECEIPT", //Defaults to INVOICE
+                    "currency": "USD",
+                    "taxNotation": "vat", //or gst
+                    "marginTop": 25,
+                    "marginRight": 25,
+                    "marginLeft": 25,
+                    "marginBottom": 25,
+                    "logo": "https://www.easyinvoice.cloud/img/logo.png", //or base64
+                    //"logoExtension": "png", //only when logo is base64
+                    "sender": {
+                        "company": "Sample Corp",
+                        "address": "Sample Street 123",
+                        "zip": "1234 AB",
+                        "city": "Sampletown",
+                        "country": "Samplecountry"
+                        //"custom1": "custom value 1",
+                        //"custom2": "custom value 2",
+                        //"custom3": "custom value 3"
+                    },
+                    "client": {
+                        "company": "Client Corp",
+                        "address": "Clientstreet 456",
+                        "zip": "4567 CD",
+                        "city": "Clientcity",
+                        "country": "Clientcountry"
+                        //"custom1": "custom value 1",
+                        //"custom2": "custom value 2",
+                        //"custom3": "custom value 3"
+                    },
+                    "invoiceNumber": "2020.0001",
+                    "invoiceDate": "05-01-2020",
+                    "products": [
+                        {
+                            "quantity": "2",
+                            "description": "Test1",
+                            "tax": 6,
+                            "price": 33.87
+                        },
+                        {
+                            "quantity": "4",
+                            "description": "Test2",
+                            "tax": 21,
+                            "price": 10.45
+                        }
+                    ],
+                    "bottomNotice": "Kindly pay your invoice within 15 days."
+                };
+                 
+                //Create your invoice! Easy!
+                easyinvoice.createInvoice(data, async function (result) {
+                    //The response will contain a base64 encoded PDF file
+                    console.log(result.pdf);
+                    easyinvoice.download("invoice.pdf")
+                
+                    //await fs.writeFileSync("invoice.pdf", result.pdf, 'base64');
+                });
+                 
+                
+                    }
+                
+                </script>
+                <div class="line-divide second-line"></div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap-bottom-footer"> 
+        <div class="container">
+            
+            <div class="bottom-footer row justify-content-between">
+                <div class="col-12 col-sm-7">© 2021 DesignGalaxy8. All rights reserved.</div>
+                <div class="col-12 col-sm-5"><span>Privacy policy</span><span>Terms of use</span></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to top -->
+<div class="btn-back-to-top" id="myBtn">
+    <span class="symbol-btn-back-to-top">
+        <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+    </span>
+</div>
+</div>
+
+<!--===============================================================================================-->	
+<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/animsition/dist/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/jqueryui/jquery-ui.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/bootstrap/js/popper.min.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/daterangepicker-bootstrap/moment.min.js"></script>
+<script type="text/javascript" src="vendor/daterangepicker-bootstrap/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/bootstrap-notify/bootstrap-notify.js"></script>
+<script type="text/javascript" src="js/bootstrap-notify-custom.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+<script src="js/slide100.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#slide100-01').slide100({
+            autoPlay: "false",
+            timeAuto: 3000,
+            deLay: 500,
+
+            linkIMG: [
+                'images/product-detail-img-01.jpg','images/product-detail-img-02.jpg',
+                'images/product-detail-img-03.jpg','images/product-detail-img-04.jpg'
+            ],
+
+            linkThumb: [
+                'images/product-detail-img-thumb-01.jpg','images/product-detail-img-thumb-02.jpg',
+                'images/product-detail-img-thumb-03.jpg','images/product-detail-img-thumb-04.jpg'
+            ]
+        });
+    });
+</script>
+</div>
+
+
+
+<script >
+    const menuIcon = document.getElementById("menu-icon");
+const slideoutMenu = document.getElementById("slideout-menu");
+const searchIcon = document.getElementById("search-icon");
+const searchBox = document.getElementById("searchbox");
+
+searchIcon.addEventListener('click', function () {
+  if (searchBox.style.top == '72px') {
+    searchBox.style.top = '24px';
+    searchBox.style.pointerEvents = 'none';
+  } else {
+    searchBox.style.top = '72px';
+    searchBox.style.pointerEvents = 'auto';
+  }
+});
+
+menuIcon.addEventListener('click', function () {
+  if (slideoutMenu.style.opacity == "1") {
+    slideoutMenu.style.opacity = '0';
+    slideoutMenu.style.pointerEvents = 'none';
+  } else {
+    slideoutMenu.style.opacity = '1';
+    slideoutMenu.style.pointerEvents = 'auto';
+  }
+})
+</script>
+</body>
+</html>
